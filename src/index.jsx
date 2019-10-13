@@ -1,28 +1,25 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Router } from 'react-router'
+import { Switch, Route } from "react-router-dom";
 import { Provider } from 'react-redux'
-import thunkMiddleware from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux'
-
-import './styles/styles.scss';
 
 import routes from "./routes";
-import mainReducer from './redux/reducers/index'
+import history from './history';
+import { store } from './redux/store';
 
-const store = createStore(
-    mainReducer,
-    applyMiddleware(thunkMiddleware)
-);
+import './styles/styles.scss';
 
 class App extends React.Component {
   render() {
     return (
-      <Switch>
-        {routes.map((item, idx) => <Route key={idx} {...item} />)}
-      </Switch>
+      <Router history={ history }>
+        <Switch>
+          {routes.map((item, idx) => <Route key={idx} {...item} />)}
+        </Switch>
+      </Router>
     )
   }
 }
 
-ReactDom.render(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));
+ReactDom.render(<Provider store={ store }><App /></Provider>, document.getElementById('root'));
