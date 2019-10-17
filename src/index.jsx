@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader/root';
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Router } from 'react-router'
@@ -10,16 +11,18 @@ import { store } from './redux/store';
 
 import './styles/styles.scss';
 
-class App extends React.Component {
-  render() {
+const App = () => {
     return (
-      <Router history={ history }>
-        <Switch>
-          {routes.map((item, idx) => <Route key={idx} {...item} />)}
-        </Switch>
-      </Router>
+      <Provider store={ store }>
+        <Router history={ history }>
+          <Switch>
+            {routes.map((item, idx) => <Route key={idx} {...item} />)}
+          </Switch>
+        </Router>
+      </Provider>
     )
-  }
 }
 
-ReactDom.render(<Provider store={ store }><App /></Provider>, document.getElementById('root'));
+const HotApp = hot(App);
+
+ReactDom.render(<HotApp/>, document.getElementById('root'));
