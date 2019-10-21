@@ -1,0 +1,23 @@
+.form {
+  width: 500px;
+  padding: 10px;
+  .form-control {
+    margin: 10px 0;
+  }
+  .submit-btn{
+    float: right;
+  }
+}
+
+.lovely-btn {
+  &.btn {
+    &.btn-primary {
+      background-color: $primary;
+      border-color: $primary;
+      &:active {
+        background-color: $primary-light;
+        border-color: $primary-light;
+      }
+    }
+  }
+}
