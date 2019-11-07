@@ -1,0 +1,20 @@
+import React from 'react';
+import './article-tile.scss'
+
+const ArticleTile = ({ article }) => (
+  <article className="article-tile">
+    <div className="article-tile__img">
+      <img src={ article.image_url } alt="Article image"/>
+    </div>
+    <div className="article-tile__body">
+      <h2 className="article-tile__title">{ article.title }</h2>
+      <p className="article-tile__text">{ article.text }</p>
+      <div className="article-tile__actions">
+        <a href="">Edit</a>
+        <a href="">Destroy</a>
+      </div>
+    </div>
+  </article>
+);
+
+export default ArticleTile;

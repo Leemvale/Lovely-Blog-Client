@@ -1,8 +1,12 @@
 import React from "react";
+import ArticleTile from "../tiles/article/ArticleTile";
 
-const Articles = () => {
+const Articles = ({ articles }) => {
+  const articleElements = articles.map(article => <ArticleTile key={ article.id } article={ article }/>);
   return(
-    <h1>Articles!</h1>
+    <div>
+      { articleElements }
+    </div>
   )
 }
 

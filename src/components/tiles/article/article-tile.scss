@@ -1,0 +1,20 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/components.scss';
+
+.article-tile {
+  @extend .tile;
+
+  height: 200px;
+
+  &__img {
+      height: 160px;
+      width: 30%;
+      align-self: center;
+      overflow: hidden;
+      border-radius: 10px;
+  }
+
+  &__body {
+      padding-left: 20px;
+  }
+}

@@ -9,9 +9,8 @@ export function login(email, password) {
     userService.login(email, password)
       .then(
         user => {
-          debugger
           dispatch(success(user));
-          history.push('/articles')
+          history.push(`/profiles/${user.id}`)
         },
         error => {
           dispatch(failure(error.toString()));
