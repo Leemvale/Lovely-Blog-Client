@@ -9,13 +9,23 @@ class ProfileContainer extends Component {
     this.state = { user: null };
   }
 
-  componentDidMount() {
+  getProfile() {
     const { id } = this.props.match.params
     userService.getUserProfile(id).then(
       (profile) => {
         this.setState({ user: profile.user });
       }
     )
+  }
+
+  componentDidMount() {
+    this.getProfile()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params != prevProps.match.params) {
+      this.getProfile()
+    }
   }
 
   render() {

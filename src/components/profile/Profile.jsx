@@ -1,8 +1,11 @@
-import React from "react";
-import Articles from "../articles/Articles";
+import React from 'react';
+import Articles from '../articles/Articles';
+import Friends from '../friends/Friends';
+import './profile.scss'
 
-const Profile = ({user}) => {
+const Profile = ({ user }) => {
   const userArticles = user.articles || [];
+  const userFriends = user.friends || [];
 
   return(
     <div className="profile">
@@ -15,16 +18,7 @@ const Profile = ({user}) => {
 
       <div className="row">
         <div className="profile__friends col-3">
-          <ul>
-            {/* TODO: Friend tile */}
-            {
-              user.friends
-              ? user.friends.map((friend) => (
-                <li key={friend.id}>{ friend.nickname }</li>
-              ))
-              : ''
-            }
-          </ul>
+          <Friends friends={userFriends}></Friends>
         </div>
         <div className="profile__articles col-9">
           <Articles articles={ userArticles }/>

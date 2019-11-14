@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Wallpoet&display=swap');
 @import "~bootstrap/scss/bootstrap";
 @import 'colors';
 @import 'components';
@@ -8,4 +9,12 @@ body {
 
 img {
     height: 100%;
+}
+
+a {
+    color: $primary;
+    &:hover {
+        color: $primary-light;
+        text-decoration: none;
+    }
 }

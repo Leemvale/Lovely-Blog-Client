@@ -1,0 +1,11 @@
+@import '../../styles/components.scss';
+
+.profile {
+  &__name {
+    h2 {
+      font-family: 'Wallpoet';
+      font-size: 4rem;
+      color: #acbabd;
+    }
+  }
+}

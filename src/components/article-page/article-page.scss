@@ -1,0 +1,9 @@
+.article {
+  margin-top: 30px;
+  &__img {
+      display: block;
+      margin: 10px auto;
+      max-width: 100%;
+      height: auto;
+  }
+}

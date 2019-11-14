@@ -1,0 +1,6 @@
+@import '../../styles/components.scss';
+
+.friends {
+  @extend .tile;
+  list-style: none;
+}
